@@ -1,5 +1,8 @@
 package de.papiertuch.bedwars.listener;
 
+import de.dytanic.cloudnet.driver.CloudNetDriver;
+import de.dytanic.cloudnet.driver.permission.IPermissionGroup;
+import de.dytanic.cloudnet.driver.permission.IPermissionUser;
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.bedwars.utils.BedWarsTeam;
@@ -25,12 +28,17 @@ public class AsyncPlayerChatListener implements Listener {
         Player player = event.getPlayer();
         event.setCancelled(true);
         String message = event.getMessage();
+        IPermissionUser user = CloudNetDriver.getInstance().getPermissionManagement().getUser(player.getUniqueId());
+        if (user == null) {
+            return;
+        }
+        IPermissionGroup group = CloudNetDriver.getInstance().getPermissionManagement().getHighestPermissionGroup(user);
         if (BedWars.getInstance().getGameState() == GameState.LOBBY || BedWars.getInstance().getGameState() == GameState.ENDING) {
             TabListGroup tabListGroup = BedWars.getInstance().getGameHandler().getTabListGroup(player);
             BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("chat.format.team")
                     .replace("%player%", player.getDisplayName())
                     .replace("%name%", player.getName())
-                    .replace("%prefix%", tabListGroup.getPrefix())
+                    .replace("%permsprefix%", group.getPrefix().replace("&", "§"))
                     .replace("%suffix%", tabListGroup.getSuffix())
                     .replace("%display%", tabListGroup.getDisplay())
                     .replace("%message%", message));
