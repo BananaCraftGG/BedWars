@@ -10,7 +10,6 @@ import de.papiertuch.bedwars.commands.Stats;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.bedwars.game.Scheduler;
 import de.papiertuch.bedwars.listener.*;
-import de.papiertuch.bedwars.metrics.Metrics;
 import de.papiertuch.bedwars.stats.MySQL;
 import de.papiertuch.bedwars.stats.StatsAPI;
 import de.papiertuch.bedwars.stats.StatsHandler;
@@ -102,8 +101,6 @@ public class BedWars extends JavaPlugin {
         } catch (IOException exception) {
             System.out.println("[BedWars] No connection to the WebServer could be established, you will not receive update notifications");
         }
-
-        new Metrics(this, 11739);
 
         statsHandler = new StatsHandler();
         mySQL = new MySQL();
