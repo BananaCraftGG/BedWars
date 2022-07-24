@@ -61,12 +61,12 @@ public class Lobby {
                 case 30:
                 case 10:
                     BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.gameStartingIn")
-                            .replace("%seconds%", String.valueOf(seconds)));
+                            .replace("%seconds%", String.valueOf(seconds)).replace("%map%", BedWars.getInstance().getMap()));
                     playSound();
                     break;
                 case 15:
                     BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.gameStartingIn")
-                            .replace("%seconds%", String.valueOf(seconds)));
+                            .replace("%seconds%", String.valueOf(seconds)).replace("%map%", BedWars.getInstance().getMap()));
                     playSound();
                     if (BedWars.getInstance().getBedWarsConfig().getBoolean("settings.sendTitle")) {
                         for (Player a : Bukkit.getOnlinePlayers()) {
@@ -90,7 +90,7 @@ public class Lobby {
 
                     BedWars.getInstance().getGameHandler().sendBroadCast("");
                     BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.gameStartingIn")
-                            .replace("%seconds%", String.valueOf(seconds)));
+                            .replace("%seconds%", String.valueOf(seconds)).replace("%map%", BedWars.getInstance().getMap()));
                     for (Player a : Bukkit.getOnlinePlayers()) {
                         a.playSound(a.getLocation(), BedWars.getInstance().getGameHandler().getSound("ANVIL_LAND"), 1, 1);
                         a.getInventory().remove(new ItemStorage().getVote());
@@ -101,7 +101,7 @@ public class Lobby {
                 case 4:
                 case 2:
                     BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.gameStartingIn")
-                            .replace("%seconds%", String.valueOf(seconds)));
+                            .replace("%seconds%", String.valueOf(seconds)).replace("%map%", BedWars.getInstance().getMap()));
                     playSound();
                     if (BedWars.getInstance().getBedWarsConfig().getBoolean("settings.sendTitle")) {
                         for (Player a : Bukkit.getOnlinePlayers()) {
@@ -110,7 +110,7 @@ public class Lobby {
                     }
                     break;
                 case 1:
-                    BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.gameStartingInOneSecond"));
+                    BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.gameStartingInOneSecond").replace("%map%", BedWars.getInstance().getMap()));
                     playSound();
                     if (BedWars.getInstance().getBedWarsConfig().getBoolean("settings.sendTitle")) {
                         for (Player a : Bukkit.getOnlinePlayers()) {
