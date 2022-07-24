@@ -73,7 +73,7 @@ public class BedWars extends JavaPlugin {
 
     private boolean boarder, gold, nickEnable, forceMap, itemDrop;
 
-    private String map, newVersion;
+    private String map;
 
     @Override
     public void onEnable() {
@@ -92,14 +92,6 @@ public class BedWars extends JavaPlugin {
             getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §cDas Plugin ist nur für die Versionen 1.8.3 - 1.12.2 gedacht");
             Bukkit.getPluginManager().disablePlugin(this);
             return;
-        }
-
-        try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + 68403).openStream(); Scanner scanner = new Scanner(inputStream)) {
-            if (scanner.hasNext()) {
-                newVersion = scanner.next();
-            }
-        } catch (IOException exception) {
-            System.out.println("[BedWars] No connection to the WebServer could be established, you will not receive update notifications");
         }
 
         statsHandler = new StatsHandler();
@@ -559,10 +551,6 @@ public class BedWars extends JavaPlugin {
 
     public boolean isBoarder() {
         return boarder;
-    }
-
-    public String getNewVersion() {
-        return newVersion;
     }
 
     public boolean isForceMap() {

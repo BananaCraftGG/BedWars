@@ -29,12 +29,6 @@ public class PlayerJoinListener implements Listener {
         event.setJoinMessage(null);
         Player player = event.getPlayer();
         if (BedWars.getInstance().getGameState() == GameState.LOBBY) {
-            if (player.hasPermission("update.notify")) {
-                if (BedWars.getInstance().getNewVersion() != null && !BedWars.getInstance().getNewVersion().equalsIgnoreCase(BedWars.getInstance().getDescription().getVersion())) {
-                    player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §aEs ist eine neue Version verfügbar §8» §f§l" + BedWars.getInstance().getNewVersion());
-                    player.sendMessage("§ehttps://www.spigotmc.org/resources/bedwars-bukkit-mit-mapreset-und-stats.68403/");
-                }
-            }
             BedWars.getInstance().getStatsHandler().createPlayer(player);
             BedWars.getInstance().getGameHandler().setPlayer(player);
             BedWars.getInstance().getBoard().addPlayerToBoard(player);
