@@ -113,6 +113,7 @@ public class Ending {
             seconds--;
 
         }, 0, 20);
+        Bukkit.getServer().shutdown();
 
     }
 
