@@ -1,0 +1,14 @@
+name: BedWars
+author: Papiertuch
+version: 1.8.3
+main: de.papiertuch.bedwars.BedWars
+softdepend:
+  - CloudNetAPI
+  - CloudNet-Bridge
+  - Multiverse-Core
+  - NickAddon
+commands:
+  start:
+  setup:
+  stats:
+  forcemap:
