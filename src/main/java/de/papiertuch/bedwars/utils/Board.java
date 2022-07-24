@@ -80,7 +80,7 @@ public class Board {
                 if (BedWars.getInstance().getPlayers().contains(s.getUniqueId())) {
                     BedWarsTeam team = BedWars.getInstance().getGameHandler().getTeam(s);
                     board.getTeam(team.getTagId() + team.getName().toLowerCase()).addEntry(s.getName());
-                    s.setDisplayName(team.getColor() + s.getName());
+                    s.setDisplayName(team.getColorCode() + s.getName());
                 } else if (BedWars.getInstance().getSpectators().contains(s.getUniqueId())) {
                     spec.addEntry(s.getName());
                     s.setDisplayName(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.spectator.display") + s.getName());
