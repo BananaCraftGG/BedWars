@@ -380,7 +380,7 @@ public class ShopHandler {
             return "§c" + price + " Bronze";
         }
         if (material.equals("IRON_INGOT")) {
-            return "§f" + price + " Eisen";
+            return "§f" + price + " Iron";
         }
         if (material.equals("GOLD_INGOT")) {
             return "§6" + price + " Gold";
