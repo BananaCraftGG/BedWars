@@ -2,6 +2,7 @@ package de.papiertuch.bedwars.listener;
 
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.enums.GameState;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -62,6 +63,9 @@ public class PlayerQuitListener implements Listener {
                         .replace("%player%", player.getDisplayName()));
             } else {
                 BedWars.getInstance().getSpectators().remove(player.getUniqueId());
+            }
+            if(BedWars.getInstance().getPlayers().size() < 0 || BedWars.getInstance().getPlayers().size() == 0) {
+                Bukkit.getServer().shutdown();
             }
         }
     }
