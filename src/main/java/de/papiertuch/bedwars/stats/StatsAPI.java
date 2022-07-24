@@ -240,13 +240,13 @@ public class StatsAPI {
                 if (loc.getBlock().getState() instanceof Sign) {
                     BlockState blockState = loc.getBlock().getState();
                     Sign sign = (Sign) blockState;
-                    sign.setLine(0, "Platz §8#" + id);
-                    sign.setLine(1, "§8" + name);
+                    sign.setLine(0, "§b#" + id);
+                    sign.setLine(1, "§7" + name);
                     if (ranking.size() >= (id)) {
-                        sign.setLine(2, "§l" + getInt(name, "POINTS") + " §rPunkte");
+                        sign.setLine(2, "§l" + getInt(name, "POINTS") + " §rPoints");
                         sign.setLine(3, "§l" + getInt(name, "WINS") + " §rWins");
                     } else {
-                        sign.setLine(2, "0 §rPunkte");
+                        sign.setLine(2, "0 §rPoints");
                         sign.setLine(3, "0 §rWins");
                     }
                     sign.update();
