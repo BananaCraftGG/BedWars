@@ -1,6 +1,7 @@
 package de.papiertuch.bedwars.utils;
 
 import de.papiertuch.bedwars.BedWars;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -17,7 +18,7 @@ import java.util.List;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class BedWarsConfig {
 
     private File file;
@@ -55,10 +56,6 @@ public class BedWarsConfig {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public FileConfiguration getConfiguration() {
-        return configuration;
     }
 
     private void init() {
@@ -560,9 +557,5 @@ public class BedWarsConfig {
             }
         }
         return null;
-    }
-
-    public ArrayList<ConfigInput> getSortedList() {
-        return sortedList;
     }
 }

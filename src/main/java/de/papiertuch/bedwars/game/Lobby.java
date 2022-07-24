@@ -4,6 +4,8 @@ import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.bedwars.utils.BedWarsTeam;
 import de.papiertuch.bedwars.utils.ItemStorage;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldBorder;
 import org.bukkit.entity.Entity;
@@ -17,7 +19,8 @@ import java.util.ArrayList;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
+@Setter
 public class Lobby {
 
     private int seconds;
@@ -207,11 +210,4 @@ public class Lobby {
         }
     }
 
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
-    }
-
-    public Integer getSeconds() {
-        return seconds;
-    }
 }

@@ -3,6 +3,7 @@ package de.papiertuch.bedwars.game;
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.api.events.GameStatingEvent;
 import de.papiertuch.bedwars.utils.BedWarsTeam;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -12,7 +13,7 @@ import org.bukkit.entity.Player;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class Game {
 
     private int minutes = BedWars.getInstance().getBedWarsConfig().getInt("countDown.gameTime");
@@ -56,7 +57,7 @@ public class Game {
                         break;
                     case 0:
                         BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.border"));
-                        BedWars.getInstance().getScheduler().getBoarder().startCountdown();
+                        BedWars.getInstance().getScheduler().getBorder().startCountdown();
                         stopCountdown();
                         break;
                 }
@@ -87,11 +88,6 @@ public class Game {
             BedWars.getInstance().getLastHit().clear();
             BedWars.getInstance().getStatsHandler().addPlayedGame(a);
         }
-    }
-
-
-    public int getMinutes() {
-        return minutes;
     }
 
     public void stopCountdown() {

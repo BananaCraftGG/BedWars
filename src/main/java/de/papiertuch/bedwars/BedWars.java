@@ -14,6 +14,8 @@ import de.papiertuch.bedwars.stats.MySQL;
 import de.papiertuch.bedwars.stats.StatsAPI;
 import de.papiertuch.bedwars.stats.StatsHandler;
 import de.papiertuch.bedwars.utils.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
@@ -33,7 +35,8 @@ import java.util.*;
  * © Copyright by Papiertuch
  */
 
-
+@Getter
+@Setter
 public class BedWars extends JavaPlugin {
 
     private static BedWars instance;
@@ -247,7 +250,7 @@ public class BedWars extends JavaPlugin {
     }
 
     public void loadGame() {
-        getScheduler().getBoarder().stop();
+        getScheduler().getBorder().stop();
         getScheduler().getEnding().stopCountdown();
         getScheduler().getGame().stopCountdown();
         getScheduler().getLobby().stopCountdown();
@@ -521,9 +524,7 @@ public class BedWars extends JavaPlugin {
         return colors;
     }
 
-    public HashMap<UUID, Integer> getSetupStatsWall() {
-        return setupStatsWall;
-    }
+
 
     public HashMap<BedWarsTeam, Inventory> getTeamChest() {
         return teamChest;
@@ -543,26 +544,6 @@ public class BedWars extends JavaPlugin {
 
     public HashMap<String, List<Location>> getBlocks() {
         return blocks;
-    }
-
-    public String getMap() {
-        return map;
-    }
-
-    public boolean isBoarder() {
-        return boarder;
-    }
-
-    public boolean isForceMap() {
-        return forceMap;
-    }
-
-    public boolean isGold() {
-        return gold;
-    }
-
-    public boolean isNickEnable() {
-        return nickEnable;
     }
 
     public void setBoard(Board board) {

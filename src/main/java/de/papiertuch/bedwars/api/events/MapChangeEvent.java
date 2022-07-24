@@ -1,9 +1,10 @@
 package de.papiertuch.bedwars.api.events;
 
+import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-
+@Getter
 public class MapChangeEvent extends Event {
 
     private static HandlerList handlerList = new HandlerList();
@@ -17,21 +18,10 @@ public class MapChangeEvent extends Event {
         this.map = map;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public String getMap() {
-        return map;
-    }
     @Override
     public HandlerList getHandlers()
     {
         return handlerList;
     }
 
-    public static HandlerList getHandlerList()
-    {
-        return handlerList;
-    }
 }

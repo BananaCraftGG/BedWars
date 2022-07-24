@@ -28,7 +28,7 @@ public class Board {
         for (BedWarsTeam team : BedWars.getInstance().getBedWarsTeams()) {
             Team playerTeam = board.registerNewTeam(team.getTagId() + team.getName().toLowerCase());
             playerTeam.setPrefix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.teams.prefix")
-                    .replace("%team%", team.getColor()));
+                    .replace("%team%", team.getColorCode()));
             playerTeam.setAllowFriendlyFire(false);
         }
         Team spec = board.registerNewTeam("99spec");
@@ -55,18 +55,18 @@ public class Board {
             Team score = board.registerNewTeam(team.getName());
             if (team.hasBed()) {
                 score.setPrefix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasBed.one")
-                        .replace("%team%", team.getColor()));
+                        .replace("%team%", team.getColorCode()));
                 if (BedWars.getInstance().getGameHandler().getMaxPlayerAtTeam() != 1) {
                     score.setSuffix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasBed.two")
                             .replace("%players%", String.valueOf(team.getPlayers().size())));
                 }
             } else if (team.getPlayers().size() == 0) {
                 score.setPrefix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamDeath.one")
-                        .replace("%team%", team.getColor()));
+                        .replace("%team%", team.getColorCode()));
                 score.setSuffix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamDeath.two"));
             } else {
                 score.setPrefix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasNoBed.one")
-                        .replace("%team%", team.getColor()));
+                        .replace("%team%", team.getColorCode()));
                 if (BedWars.getInstance().getGameHandler().getMaxPlayerAtTeam() != 1) {
                     score.setSuffix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasNoBed.two")
                             .replace("%players%", String.valueOf(team.getPlayers().size())));
@@ -145,18 +145,18 @@ public class Board {
                 for (BedWarsTeam team : BedWars.getInstance().getBedWarsTeams()) {
                     if (team.hasBed()) {
                         a.getScoreboard().getTeam(team.getName()).setPrefix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasBed.one")
-                                .replace("%team%", team.getColor()));
+                                .replace("%team%", team.getColorCode()));
                         if (BedWars.getInstance().getGameHandler().getMaxPlayerAtTeam() != 1) {
                             a.getScoreboard().getTeam(team.getName()).setSuffix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasBed.two")
                                     .replace("%players%", String.valueOf(team.getPlayers().size())));
                         }
                     } else if (team.getPlayers().size() == 0) {
                         a.getScoreboard().getTeam(team.getName()).setPrefix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamDeath.one")
-                                .replace("%team%", team.getColor()));
+                                .replace("%team%", team.getColorCode()));
                         a.getScoreboard().getTeam(team.getName()).setSuffix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamDeath.two"));
                     } else {
                         a.getScoreboard().getTeam(team.getName()).setPrefix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasNoBed.one")
-                                .replace("%team%", team.getColor()));
+                                .replace("%team%", team.getColorCode()));
                         if (BedWars.getInstance().getGameHandler().getMaxPlayerAtTeam() != 1) {
                             a.getScoreboard().getTeam(team.getName()).setSuffix(BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line.teamHasNoBed.two")
                                     .replace("%players%", String.valueOf(team.getPlayers().size())));
@@ -226,7 +226,7 @@ public class Board {
 
         } else if (BedWars.getInstance().getGameState() == GameState.INGAME && BedWars.getInstance().isBoarder()) {
             SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
-            String time = sdf.format(BedWars.getInstance().getScheduler().getBoarder().getMinutes() * 1000);
+            String time = sdf.format(BedWars.getInstance().getScheduler().getBorder().getMinutes() * 1000);
             return BedWars.getInstance().getBedWarsConfig().getString("scoreboard.title")
                     .replace("%time%", time);
 

@@ -1,5 +1,7 @@
 package de.papiertuch.bedwars.utils;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Color;
 
 import java.util.ArrayList;
@@ -10,7 +12,8 @@ import java.util.UUID;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
+@Setter
 public class BedWarsTeam {
 
     private String name;
@@ -31,31 +34,6 @@ public class BedWarsTeam {
         this.color = color;
     }
 
-    public int getTagId() {
-        return tagId;
-    }
-
-    public void setBed(boolean bed) {
-        this.bed = bed;
-    }
-
-
-    public Color getColorasColor() {
-        return color;
-    }
-
-    public boolean hasBed() {
-        return bed;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public ArrayList<UUID> getPlayers() {
-        return players;
-    }
-
     public void addPlayer(UUID player) {
         if (!this.players.contains(player)) {
             this.players.add(player);
@@ -68,11 +46,7 @@ public class BedWarsTeam {
         }
     }
 
-    public String getColor() {
-        return colorCode;
-    }
-
-    public String getName() {
-        return name;
+    public boolean hasBed() {
+        return bed;
     }
 }

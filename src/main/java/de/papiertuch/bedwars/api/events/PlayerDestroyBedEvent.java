@@ -1,11 +1,12 @@
 package de.papiertuch.bedwars.api.events;
 
 import de.papiertuch.bedwars.utils.BedWarsTeam;
+import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-
+@Getter
 public class PlayerDestroyBedEvent extends Event {
 
     private static HandlerList handlerList = new HandlerList();
@@ -22,26 +23,10 @@ public class PlayerDestroyBedEvent extends Event {
         this.team = team;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public BedWarsTeam getTeam() {
-        return team;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
     @Override
     public HandlerList getHandlers()
     {
         return handlerList;
     }
 
-    public static HandlerList getHandlerList()
-    {
-        return handlerList;
-    }
 }

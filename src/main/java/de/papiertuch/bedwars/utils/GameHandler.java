@@ -3,6 +3,7 @@ package de.papiertuch.bedwars.utils;
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.nickaddon.NickAddon;
+import lombok.Getter;
 import org.bukkit.*;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -31,7 +32,7 @@ import java.util.UUID;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class GameHandler {
 
     private BukkitTask bronzeId;
@@ -55,14 +56,6 @@ public class GameHandler {
         player.getInventory().setItem(8, new ItemStorage().getFinish());
     }
 
-    public HashMap<UUID, BedWarsTeam> getSetupTeam() {
-        return setupTeam;
-    }
-
-    public HashMap<UUID, String> getSetup() {
-        return setup;
-    }
-
     public Color getColorFromString(String color) {
         if (BedWars.getInstance().getColors().containsKey(color)) {
             return BedWars.getInstance().getColors().get(color);
@@ -83,7 +76,7 @@ public class GameHandler {
             team.addPlayer(player.getUniqueId());
             player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.choseTeam")
                     .replace("%team%",
-                            team.getColor() + team.getName()));
+                            team.getColorCode() + team.getName()));
             player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
             player.closeInventory();
         }
@@ -157,8 +150,8 @@ public class GameHandler {
                         .replace("%count%", Bukkit.getPlayer(uuid).getName()));
             }
             inv.addItem(new ItemBuilder(Material.LEATHER_BOOTS, 1)
-                    .setName(team.getColor() + team.getName())
-                    .setLeatherColor(team.getColorasColor())
+                    .setName(team.getColorCode() + team.getName())
+                    .setLeatherColor(team.getColor())
                     .addFlags(ItemFlag.values())
                     .setLore(list)
                     .build());
@@ -284,7 +277,7 @@ public class GameHandler {
             team.removePlayer(player.getUniqueId());
             if (team.getPlayers().size() == 0) {
                 sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.teamDeath")
-                        .replace("%team%", team.getColor() + team.getName()));
+                        .replace("%team%", team.getColorCode() + team.getName()));
                 BedWars.getInstance().getAliveTeams().remove(team);
                 team.setBed(false);
                 for (Player a : Bukkit.getOnlinePlayers()) {
@@ -293,7 +286,7 @@ public class GameHandler {
                 }
             } else {
                 sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.teamReamingPlayers")
-                        .replace("%team%", team.getColor() + team.getName())
+                        .replace("%team%", team.getColorCode() + team.getName())
                         .replace("%players%", String.valueOf(team.getPlayers().size())));
                 for (Player a : Bukkit.getOnlinePlayers()) {
                     a.playSound(a.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.error")), 10F, 10F);
@@ -344,11 +337,11 @@ public class GameHandler {
                 a.getInventory().setItem(BedWars.getInstance().getBedWarsConfig().getInt("item.leave.slot"), new ItemStorage().getLeave());
                 a.sendTitle(BedWars.getInstance().getBedWarsConfig().getString("message.title.win.one")
                         .replace("%team%", winner.getName())
-                        .replace("%teamColor%", winner.getColor()), BedWars.getInstance().getBedWarsConfig().getString("message.title.win.two"));
+                        .replace("%teamColor%", winner.getColorCode()), BedWars.getInstance().getBedWarsConfig().getString("message.title.win.two"));
             }
             sendBroadCast("§7");
             sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.teamWin")
-                    .replace("%team%", winner.getColor() + winner.getName()));
+                    .replace("%team%", winner.getColorCode() + winner.getName()));
             sendBroadCast("§7");
             return;
         }
@@ -478,7 +471,7 @@ public class GameHandler {
             if (team.getPlayers().isEmpty()) {
                 team.addPlayer(player.getUniqueId());
                 player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.yourInTeam")
-                        .replace("%team%", team.getColor() + team.getName()));
+                        .replace("%team%", team.getColorCode() + team.getName()));
                 return;
             }
         }
@@ -486,7 +479,7 @@ public class GameHandler {
             if (team.getPlayers().size() < team.getSize()) {
                 team.addPlayer(player.getUniqueId());
                 player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.yourInTeam")
-                        .replace("%team%", team.getColor() + team.getName()));
+                        .replace("%team%", team.getColorCode() + team.getName()));
                 return;
             }
         }

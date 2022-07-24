@@ -1,6 +1,7 @@
 package de.papiertuch.bedwars.utils;
 
 import de.papiertuch.bedwars.BedWars;
+import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -9,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class ItemStorage {
 
     private ItemStack teams = new ItemBuilder(Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("item.team.material")), 1)
@@ -48,17 +49,9 @@ public class ItemStorage {
             .setLore(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setSpectator.lore"))
             .build();
 
-    public ItemStack getSaveMap() {
-        return saveMap;
-    }
-
-    public ItemStack getSetSpectator() {
-        return setSpectator;
-    }
-
     public ItemStack getTeam(BedWarsTeam team) {
         return new ItemBuilder(Material.LEATHER_BOOTS, 1)
-                .setLeatherColor(team.getColorasColor())
+                .setLeatherColor(team.getColor())
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setTeamSpawn.name")
                 .replace("%team%", team.getColor() + team.getName()))
                 .setLore(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setTeamSpawn.lore"))
@@ -116,58 +109,5 @@ public class ItemStorage {
     private ItemStack back = new ItemBuilder(Material.MAGMA_CREAM, 1)
             .setName(BedWars.getInstance().getBedWarsConfig().getString("item.setup.back.name"))
             .build();
-
-    public ItemStack getBack() {
-        return back;
-    }
-
-    public ItemStack getFinish() {
-        return finish;
-    }
-
-    public ItemStack getCompass() {
-        return compass;
-    }
-
-    public ItemStack getLeave() {
-        return leave;
-    }
-
-    public ItemStack getOptions() {
-        return options;
-    }
-
-    public ItemStack getSetBronzeSpawner() {
-        return setBronzeSpawner;
-    }
-
-    public ItemStack getSetGoldSpawner() {
-        return setGoldSpawner;
-    }
-
-    public ItemStack getSetIronSpawner() {
-        return setIronSpawner;
-    }
-
-    public ItemStack getSetLobby() {
-        return setLobby;
-    }
-
-    public ItemStack getSetStatsWall() {
-        return setStatsWall;
-    }
-
-    public ItemStack getStartItem() {
-        return startItem;
-    }
-
-    public ItemStack getTeams() {
-        return teams;
-    }
-
-    public ItemStack getVote() {
-        return vote;
-    }
-
 
 }

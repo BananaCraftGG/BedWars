@@ -1,6 +1,7 @@
 package de.papiertuch.bedwars.utils;
 
 import de.papiertuch.bedwars.BedWars;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -15,6 +16,7 @@ import java.io.IOException;
  * © Copyright by Papiertuch
  */
 
+@Getter
 public class LocationAPI {
 
     private File file;
@@ -56,14 +58,6 @@ public class LocationAPI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public FileConfiguration getCfg() {
-        return cfg;
-    }
-
-    public File getFile() {
-        return file;
     }
 
     public boolean isExists(String name) {

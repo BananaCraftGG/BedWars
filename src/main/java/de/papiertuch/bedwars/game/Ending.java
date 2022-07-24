@@ -4,6 +4,7 @@ import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.api.events.GameEndingEvent;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.nickaddon.NickAddon;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -17,7 +18,7 @@ import xyz.haoshoku.nick.api.NickAPI;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class Ending {
 
     private int
@@ -30,7 +31,7 @@ public class Ending {
         seconds = BedWars.getInstance().getBedWarsConfig().getInt("countDown.endingDuration") + 1;
         Bukkit.getPluginManager().callEvent(new GameEndingEvent());
         BedWars.getInstance().getScheduler().getGame().stopCountdown();
-        BedWars.getInstance().getScheduler().getBoarder().stop();
+        BedWars.getInstance().getScheduler().getBorder().stop();
         for (Player a : Bukkit.getOnlinePlayers()) {
             if (BedWars.getInstance().getPlayers().contains(a.getUniqueId())) {
                 BedWars.getInstance().getGameHandler().setPlayer(a);
@@ -121,10 +122,6 @@ public class Ending {
 
     public void startFirework() {
         Bukkit.getScheduler().runTaskLater(BedWars.getInstance(), () -> setFirework(), 20);
-    }
-
-    public int getSeconds() {
-        return seconds;
     }
 
     private void setFirework() {

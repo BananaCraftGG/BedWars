@@ -63,7 +63,7 @@ public class ShopHandler {
         Material material = Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.item"));
         inventory.setItem(9, new ItemBuilder(Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.item")), 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.name"))
-                .setData(material == Material.SANDSTONE ? 0 : BedWars.getInstance().getColorIds().get(BedWars.getInstance().getGameHandler().getTeam(player).getColorasColor()))
+                .setData(material == Material.SANDSTONE ? 0 : BedWars.getInstance().getColorIds().get(BedWars.getInstance().getGameHandler().getTeam(player).getColor()))
                 .build());
         inventory.setItem(10, new ItemBuilder(Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.armor.item")), 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.armor.name"))
@@ -301,19 +301,19 @@ public class ShopHandler {
         Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
         setMainItems(inventory);
         inventory.setItem(19, new ItemBuilder(Material.LEATHER_HELMET, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.helmet.amount"))
-                .setLeatherColor(BedWars.getInstance().getGameHandler().getTeam(player).getColorasColor())
+                .setLeatherColor(BedWars.getInstance().getGameHandler().getTeam(player).getColor())
                 .setLore("§8» " + getPrice("helmet"))
                 .enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.helmet.name"))
                 .build());
         inventory.setItem(20, new ItemBuilder(Material.LEATHER_LEGGINGS, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.leggings.amount"))
-                .setLeatherColor(BedWars.getInstance().getGameHandler().getTeam(player).getColorasColor())
+                .setLeatherColor(BedWars.getInstance().getGameHandler().getTeam(player).getColor())
                 .setLore("§8» " + getPrice("leggings"))
                 .enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.leggings.name"))
                 .build());
         inventory.setItem(21, new ItemBuilder(Material.LEATHER_BOOTS, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.boots.amount"))
-                .setLeatherColor(BedWars.getInstance().getGameHandler().getTeam(player).getColorasColor())
+                .setLeatherColor(BedWars.getInstance().getGameHandler().getTeam(player).getColor())
                 .setLore("§8» " + getPrice("boots"))
                 .enchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.boots.name"))
@@ -348,7 +348,7 @@ public class ShopHandler {
         setMainItems(inventory);
         Material material = Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.item"));
         inventory.setItem(20, new ItemBuilder(material, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.bricks.amount"))
-                .setData(material == Material.SANDSTONE ? 0 : BedWars.getInstance().getColorIds().get(BedWars.getInstance().getGameHandler().getTeam(player).getColorasColor()))
+                .setData(material == Material.SANDSTONE ? 0 : BedWars.getInstance().getColorIds().get(BedWars.getInstance().getGameHandler().getTeam(player).getColor()))
                 .setLore("§8» " + getPrice("bricks"))
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.bricks.name"))
                 .build());
@@ -361,7 +361,7 @@ public class ShopHandler {
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.ironBlock.name"))
                 .build());
         inventory.setItem(23, new ItemBuilder(Material.STAINED_GLASS, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.glass.amount"))
-                .setData(BedWars.getInstance().getColorIds().get(BedWars.getInstance().getGameHandler().getTeam(player).getColorasColor()))
+                .setData(BedWars.getInstance().getColorIds().get(BedWars.getInstance().getGameHandler().getTeam(player).getColor()))
                 .setLore("§8» " + getPrice("glass"))
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.glass.name"))
                 .build());

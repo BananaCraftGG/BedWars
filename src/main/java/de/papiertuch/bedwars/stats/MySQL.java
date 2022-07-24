@@ -1,6 +1,7 @@
 package de.papiertuch.bedwars.stats;
 
 import de.papiertuch.bedwars.BedWars;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.sql.PreparedStatement;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class MySQL {
 
     private Connection connection = null;
@@ -46,10 +47,6 @@ public class MySQL {
 
     public boolean isConnected() {
         return connection != null;
-    }
-
-    public Connection getConnection() {
-        return connection;
     }
 
     public void update(String qry) {

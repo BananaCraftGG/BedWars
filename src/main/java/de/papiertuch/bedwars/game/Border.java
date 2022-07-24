@@ -2,6 +2,7 @@ package de.papiertuch.bedwars.game;
 
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.utils.BedWarsTeam;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.WorldBorder;
@@ -12,7 +13,7 @@ import org.bukkit.entity.Player;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class Border {
 
     private int minutes = 600; //600
@@ -56,11 +57,6 @@ public class Border {
             minutes--;
 
         }, 0, 20);
-    }
-
-
-    public int getMinutes() {
-        return minutes;
     }
 
     public void stop() {

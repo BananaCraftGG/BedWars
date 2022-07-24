@@ -1,5 +1,7 @@
 package de.papiertuch.bedwars.utils;
 
+import lombok.Getter;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  * development with love.
  * © Copyright by Papiertuch
  */
-
+@Getter
 public class TabListGroup {
 
     private String prefix;
@@ -24,29 +26,5 @@ public class TabListGroup {
         this.prefix = prefix;
         this.tagId = tagId;
         this.permission = permission;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public String getPermission() {
-        return permission;
-    }
-
-    public String getSuffix() {
-        return suffix;
-    }
-
-    public int getTagId() {
-        return tagId;
-    }
-
-    public String getDisplay() {
-        return display;
-    }
-
-    public String getName() {
-        return name;
     }
 }

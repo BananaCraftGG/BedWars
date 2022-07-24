@@ -1,8 +1,9 @@
 package de.papiertuch.bedwars.api.events;
 
+import lombok.Getter;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-
+@Getter
 public class GameStatingEvent extends Event {
 
     private static HandlerList handlerList = new HandlerList();
@@ -17,8 +18,4 @@ public class GameStatingEvent extends Event {
         return handlerList;
     }
 
-    public static HandlerList getHandlerList()
-    {
-        return handlerList;
-    }
 }

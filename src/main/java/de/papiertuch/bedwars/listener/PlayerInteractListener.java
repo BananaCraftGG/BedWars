@@ -128,7 +128,7 @@ public class PlayerInteractListener implements Listener {
                     for (BedWarsTeam bedWarsTeam : BedWars.getInstance().getBedWarsTeams()) {
                         inventory.addItem(new ItemBuilder(Material.LEATHER_BOOTS, 1)
                                 .setName(bedWarsTeam.getColor() + bedWarsTeam.getName())
-                                .setLeatherColor(bedWarsTeam.getColorasColor())
+                                .setLeatherColor(bedWarsTeam.getColor())
                                 .setLore("§8» §7Klicken zum einrichten",
                                         "",
                                         "§8» §fSpawn §8» " + (locationAPI.checkLocation(bedWarsTeam.getName().toLowerCase() + ".spawn") ? "§a✔" : "§c✖"),
