@@ -107,7 +107,7 @@ public class Ending {
                             return;
                         }
                         BedWars.getInstance().loadGame();
-                    }, 10);
+                    }, 20L);
                     break;
             }
             seconds--;
