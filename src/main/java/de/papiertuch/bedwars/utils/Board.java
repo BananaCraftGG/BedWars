@@ -106,7 +106,7 @@ public class Board {
             obj.getScore(addPlaceHolders(player, BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line4.title"))).setScore(8);
             if (BedWars.getInstance().getPlayers().contains(player.getUniqueId())) {
                 obj.getScore(addPlaceHolders(player, BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line4.input"))
-                        .replace("%team%", BedWars.getInstance().getGameHandler().getTeam(player).getColor() + BedWars.getInstance().getGameHandler().getTeam(player).getName())).setScore(7);
+                        .replace("%team%", BedWars.getInstance().getGameHandler().getTeam(player).getColorCode() + BedWars.getInstance().getGameHandler().getTeam(player).getName())).setScore(7);
             } else {
                 obj.getScore(addPlaceHolders(player, BedWars.getInstance().getBedWarsConfig().getString("scoreboard.line4.input"))
                         .replace("%team%", "§7Spectator")).setScore(7);

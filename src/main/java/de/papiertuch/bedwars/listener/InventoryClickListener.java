@@ -58,7 +58,7 @@ public class InventoryClickListener implements Listener {
                 BedWarsTeam team = BedWars.getInstance().getBedWarsTeams().get(event.getSlot());
                 BedWars.getInstance().getGameHandler().getSetupTeam().put(player.getUniqueId(), team);
                 player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.setup.setupTeam")
-                .replace("%team%", team.getColor() + team.getName()));
+                .replace("%team%", team.getColorCode() + team.getName()));
                 player.getInventory().clear();
                 player.getInventory().setItem(0, new ItemStorage().getTeam(team));
                 player.getInventory().setItem(1, new ItemStorage().getBed(team));

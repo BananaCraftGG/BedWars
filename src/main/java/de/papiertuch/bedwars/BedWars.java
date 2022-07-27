@@ -211,7 +211,7 @@ public class BedWars extends JavaPlugin {
 
         getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Geladene Teams");
         for (BedWarsTeam team : getBedWarsTeams()) {
-            getServer().getConsoleSender().sendMessage("§f§l- " + team.getColor() + team.getName());
+            getServer().getConsoleSender().sendMessage("§f§l- " + team.getColorCode() + team.getName());
         }
         getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Geladene NameTags");
         for (TabListGroup tabListGroup : getTabListGroups()) {

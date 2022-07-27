@@ -53,7 +53,7 @@ public class ItemStorage {
         return new ItemBuilder(Material.LEATHER_BOOTS, 1)
                 .setLeatherColor(team.getColor())
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setTeamSpawn.name")
-                .replace("%team%", team.getColor() + team.getName()))
+                .replace("%team%", team.getColorCode() + team.getName()))
                 .setLore(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setTeamSpawn.lore"))
                 .build();
     }
@@ -61,7 +61,7 @@ public class ItemStorage {
     public ItemStack getBed(BedWarsTeam team) {
         return new ItemBuilder(Material.STONE_AXE, 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setBed.name")
-                        .replace("%team%", team.getColor() + team.getName()))
+                        .replace("%team%", team.getColorCode() + team.getName()))
                 .setLore(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setBed.lore"))
                 .build();
     }
@@ -69,7 +69,7 @@ public class ItemStorage {
     public ItemStack getBedTop(BedWarsTeam team) {
         return new ItemBuilder(Material.STONE_AXE, 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setBedTop.name")
-                        .replace("%team%", team.getColor() + team.getName()))
+                        .replace("%team%", team.getColorCode() + team.getName()))
                 .setLore(BedWars.getInstance().getBedWarsConfig().getString("item.setup.setBedTop.lore"))
                 .build();
     }

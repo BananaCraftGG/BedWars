@@ -41,12 +41,12 @@ public class BlockBreakListener implements Listener {
                     case STONE_AXE:
                         if (player.getItemInHand().getItemMeta().getDisplayName().contains("Unteres")) {
                             locationAPI.setBedLocation(team.getName().toLowerCase() + ".bed", event.getBlock().getLocation());
-                            player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §7Du hast das §a§lUntere Bett §7von " + team.getColor() + team.getName() + " §7gesetzt");
+                            player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §7Du hast das §a§lUntere Bett §7von " + team.getColorCode() + team.getName() + " §7gesetzt");
                             player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.interact")), 1, 1);
                             return;
                         }
                         locationAPI.setBedLocation(team.getName().toLowerCase() + ".bedTop", event.getBlock().getLocation());
-                        player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §7Du hast das §a§lObere Bett §7von " + team.getColor() + team.getName() + " §7gesetzt");
+                        player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §7Du hast das §a§lObere Bett §7von " + team.getColorCode() + team.getName() + " §7gesetzt");
                         player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.interact")), 1, 1);
                         return;
                     default:
@@ -192,7 +192,7 @@ public class BlockBreakListener implements Listener {
                             team.setBed(false);
                             BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.destroyBed")
                                     .replace("%player%", player.getDisplayName())
-                                    .replace("%team%", team.getColor() + team.getName()));
+                                    .replace("%team%", team.getColorCode() + team.getName()));
                             player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.kill")), 1F, 1F);
                             event.getBlock().setType(Material.AIR);
                             event.getBlock().getDrops().clear();

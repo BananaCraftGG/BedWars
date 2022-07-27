@@ -55,7 +55,7 @@ public class ProtectionListener implements Listener {
         if (BedWars.getInstance().getGameState() == GameState.INGAME) {
             if (BedWars.getInstance().getPlayers().contains(player.getUniqueId())) {
                 BedWarsTeam bedWarsTeam = BedWars.getInstance().getGameHandler().getTeam(player);
-                if (event.getInventory().getName().equalsIgnoreCase(bedWarsTeam.getColor() + bedWarsTeam.getName())) {
+                if (event.getInventory().getName().equalsIgnoreCase(bedWarsTeam.getColorCode() + bedWarsTeam.getName())) {
                     BedWars.getInstance().getTeamChest().put(bedWarsTeam, event.getInventory());
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound("CHEST_CLOSE"), 1, 1);
                 }
@@ -93,7 +93,7 @@ public class ProtectionListener implements Listener {
                         player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound("CHEST_OPEN"), 1, 1);
                         return;
                     }
-                    Inventory inventory = Bukkit.createInventory(null, 3 * 9, team.getColor() + team.getName());
+                    Inventory inventory = Bukkit.createInventory(null, 3 * 9, team.getColorCode() + team.getName());
                     player.openInventory(inventory);
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound("CHEST_OPEN"), 1, 1);
                 }

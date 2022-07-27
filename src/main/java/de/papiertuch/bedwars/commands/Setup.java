@@ -42,7 +42,7 @@ public class Setup implements CommandExecutor {
                     case "listteams":
                         player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §7Teams");
                         for (BedWarsTeam team : BedWars.getInstance().getBedWarsTeams()) {
-                            player.sendMessage("§8» §f§l" + team.getColor() + team.getName());
+                            player.sendMessage("§8» §f§l" + team.getColorCode() + team.getName());
                         }
                         break;
                     case "listnametags":

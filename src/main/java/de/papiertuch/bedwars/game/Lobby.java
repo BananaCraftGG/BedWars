@@ -52,7 +52,7 @@ public class Lobby {
                 BedWarsTeam team = BedWars.getInstance().getGameHandler().getTeam(a);
                 if (team != null) {
                     BedWars.getInstance().getGameHandler().sendActionBar(a, BedWars.getInstance().getBedWarsConfig().getString("message.actionBar.lobby")
-                            .replace("%team%", team.getColor() + "§l" + team.getName()));
+                            .replace("%team%", team.getColorCode() + "§l" + team.getName()));
                 }
             }
             switch (seconds) {
