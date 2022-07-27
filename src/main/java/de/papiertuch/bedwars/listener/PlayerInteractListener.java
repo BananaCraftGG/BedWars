@@ -74,7 +74,7 @@ public class PlayerInteractListener implements Listener {
                     BedWarsTeam team = BedWars.getInstance().getGameHandler().getSetupTeam().get(player.getUniqueId());
                     BedWars.getInstance().getLocationAPI(BedWars.getInstance().getGameHandler().getSetup().get(player.getUniqueId())).setLocation(team.getName().toLowerCase() + ".spawn", player.getLocation());
                     player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.setup.setTeamSpawn")
-                    .replace("%team%", team.getColor() + team.getName()));
+                    .replace("%team%", team.getColorCode() + team.getName()));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.interact")), 1, 1);
                     return;
                 }
@@ -112,7 +112,7 @@ public class PlayerInteractListener implements Listener {
                 if (player.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(new ItemStorage().getSaveMap().getItemMeta().getDisplayName())) {
                     String path = player.getWorld().getName();
                     if (path.equalsIgnoreCase("world")) {
-                        player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §cDie Wartelobby musst du nicht speichern...");
+                        player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §cThe lobby doesn't need to be saved");
                         return;
                     }
                     String target = "plugins/BedWars/mapBackup/" + path;
@@ -127,9 +127,9 @@ public class PlayerInteractListener implements Listener {
                     LocationAPI locationAPI = BedWars.getInstance().getLocationAPI(BedWars.getInstance().getGameHandler().getSetup().get(player.getUniqueId()));
                     for (BedWarsTeam bedWarsTeam : BedWars.getInstance().getBedWarsTeams()) {
                         inventory.addItem(new ItemBuilder(Material.LEATHER_BOOTS, 1)
-                                .setName(bedWarsTeam.getColor() + bedWarsTeam.getName())
+                                .setName(bedWarsTeam.getColorCode() + bedWarsTeam.getName())
                                 .setLeatherColor(bedWarsTeam.getColor())
-                                .setLore("§8» §7Klicken zum einrichten",
+                                .setLore("§8» §7Click to setup",
                                         "",
                                         "§8» §fSpawn §8» " + (locationAPI.checkLocation(bedWarsTeam.getName().toLowerCase() + ".spawn") ? "§a✔" : "§c✖"),
                                         "§8» §fBed §8» " + (locationAPI.checkLocation(bedWarsTeam.getName().toLowerCase() + ".bed") ? "§a✔" : "§c✖"),
