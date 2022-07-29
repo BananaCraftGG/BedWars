@@ -63,6 +63,8 @@ public class BedWars extends JavaPlugin {
     private ArrayList<String> randomMap;
     private ArrayList<UUID> uuid;
 
+    private StatsAPI statsAPI = new StatsAPI();
+
     private HashMap<UUID, String> setupBed;
     private HashMap<UUID, String> setupBedTop;
     private HashMap<UUID, Integer> setupStatsWall;

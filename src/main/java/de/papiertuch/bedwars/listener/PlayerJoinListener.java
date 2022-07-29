@@ -26,6 +26,7 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onJoinEvent(PlayerJoinEvent event) {
+        BedWars.getInstance().getStatsAPI().setStatsWall();
         event.setJoinMessage(null);
         Player player = event.getPlayer();
         if (BedWars.getInstance().getGameState() == GameState.LOBBY) {
