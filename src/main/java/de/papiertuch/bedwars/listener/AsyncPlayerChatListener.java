@@ -28,17 +28,11 @@ public class AsyncPlayerChatListener implements Listener {
         Player player = event.getPlayer();
         event.setCancelled(true);
         String message = event.getMessage();
-        IPermissionUser user = CloudNetDriver.getInstance().getPermissionManagement().getUser(player.getUniqueId());
-        if (user == null) {
-            return;
-        }
-        IPermissionGroup group = CloudNetDriver.getInstance().getPermissionManagement().getHighestPermissionGroup(user);
         if (BedWars.getInstance().getGameState() == GameState.LOBBY || BedWars.getInstance().getGameState() == GameState.ENDING) {
             TabListGroup tabListGroup = BedWars.getInstance().getGameHandler().getTabListGroup(player);
             BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("chat.format.team")
                     .replace("%player%", player.getDisplayName())
                     .replace("%name%", player.getName())
-                    .replace("%permsprefix%", group.getPrefix().replace("&", "§"))
                     .replace("%suffix%", tabListGroup.getSuffix())
                     .replace("%display%", tabListGroup.getDisplay())
                     .replace("%message%", message));

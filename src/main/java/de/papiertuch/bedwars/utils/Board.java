@@ -193,7 +193,7 @@ public class Board {
         team.setPrefix(ChatColor.translateAlternateColorCodes('&', permissionGroup.getPrefix()));
         team.setSuffix(ChatColor.translateAlternateColorCodes('&', permissionGroup.getSuffix()));
         team.addEntry(target.getName());
-        target.setDisplayName(ChatColor.translateAlternateColorCodes('&', permissionGroup.getDisplay()) + target.getName());
+        target.setDisplayName(ChatColor.translateAlternateColorCodes('&', permissionGroup.getPrefix()) + target.getName());
     }
 
     private void initScoreboard(Player all) {

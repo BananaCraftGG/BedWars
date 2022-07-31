@@ -1,8 +1,11 @@
 package de.papiertuch.bedwars;
 
+import de.dytanic.cloudnet.driver.CloudNetDriver;
+import de.dytanic.cloudnet.driver.permission.IPermissionGroup;
 import de.dytanic.cloudnet.ext.bridge.BridgeHelper;
 import de.dytanic.cloudnet.ext.bridge.bukkit.BukkitCloudNetHelper;
 import de.papiertuch.bedwars.api.events.GameStateChangeEvent;
+import de.papiertuch.bedwars.cloudnet.CloudNetPermissionsListener;
 import de.papiertuch.bedwars.commands.ForceMap;
 import de.papiertuch.bedwars.commands.Setup;
 import de.papiertuch.bedwars.commands.Start;
@@ -137,9 +140,13 @@ public class BedWars extends JavaPlugin {
         itemDrop = false;
         nickEnable = false;
         forceMap = false;
-        map = "Unbekannt";
+        map = "Unknown";
 
         bedWarsConfig.loadConfig();
+
+        if(getBedWarsConfig().getBoolean("module.cloudNet.v3.enable")) {
+            CloudNetDriver.getInstance().getEventManager().registerListener(new CloudNetPermissionsListener());
+        }
 
         File file = new File("plugins/BedWars/mapBackup");
         int amount = 0;
@@ -159,14 +166,14 @@ public class BedWars extends JavaPlugin {
                 randomMap.add(map.getName().replace(".yml", ""));
                 maps.put(map.getName().replace(".yml", ""), new ArrayList<>());
             }
-            getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Geladene Maps");
+            getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Loaded maps");
             for (String string : randomMap) {
                 getServer().getConsoleSender().sendMessage("§f§l- " + string);
             }
         }
 
         if (amount == 0) {
-            getServer().getConsoleSender().sendMessage("§f§l- §cEs wurden keine Maps gefunden...");
+            getServer().getConsoleSender().sendMessage("§f§l- §cNo maps found...");
         }
 
         colors.put("AQUA", Color.AQUA);
@@ -201,21 +208,33 @@ public class BedWars extends JavaPlugin {
         colorIds.put(Color.WHITE, 0);
         colorIds.put(Color.YELLOW, 4);
 
-        for (String tabList : getBedWarsConfig().getConfiguration().getStringList("nameTags.tabList")) {
-            tabListGroups.add(
-                    new TabListGroup(tabList,
-                            bedWarsConfig.getString("nameTags." + tabList + ".prefix"),
-                            bedWarsConfig.getString("nameTags." + tabList + ".suffix"),
-                            bedWarsConfig.getString("nameTags." + tabList + ".display"),
-                            bedWarsConfig.getInt("nameTags." + tabList + ".tagId"),
-                            bedWarsConfig.getString("nameTags." + tabList + ".permission")));
+        if (getBedWarsConfig().getBoolean("module.cloudNet.v3.enable")) {
+            for(IPermissionGroup iPermissionGroup : CloudNetDriver.getInstance().getPermissionManagement().getGroups()) {
+                tabListGroups.add(
+                        new TabListGroup(iPermissionGroup.getName(),
+                                iPermissionGroup.getPrefix(),
+                                iPermissionGroup.getSuffix(),
+                                iPermissionGroup.getDisplay(),
+                                iPermissionGroup.getSortId()));
+            }
+        }
+        else {
+            for (String tabList : getBedWarsConfig().getConfiguration().getStringList("nameTags.tabList")) {
+                tabListGroups.add(
+                        new TabListGroup(tabList,
+                                bedWarsConfig.getString("nameTags." + tabList + ".prefix"),
+                                bedWarsConfig.getString("nameTags." + tabList + ".suffix"),
+                                bedWarsConfig.getString("nameTags." + tabList + ".display"),
+                                bedWarsConfig.getInt("nameTags." + tabList + ".tagId"),
+                                bedWarsConfig.getString("nameTags." + tabList + ".permission")));
+            }
         }
 
-        getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Geladene Teams");
+        getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Loaded teams");
         for (BedWarsTeam team : getBedWarsTeams()) {
             getServer().getConsoleSender().sendMessage("§f§l- " + team.getColorCode() + team.getName());
         }
-        getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Geladene NameTags");
+        getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §7Loaded NameTags");
         for (TabListGroup tabListGroup : getTabListGroups()) {
             getServer().getConsoleSender().sendMessage("§f§l- " + tabListGroup.getDisplay() + tabListGroup.getName());
         }

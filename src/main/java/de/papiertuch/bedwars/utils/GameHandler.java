@@ -1,5 +1,8 @@
 package de.papiertuch.bedwars.utils;
 
+import de.dytanic.cloudnet.driver.CloudNetDriver;
+import de.dytanic.cloudnet.driver.permission.IPermissionGroup;
+import de.dytanic.cloudnet.driver.permission.IPermissionUser;
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.nickaddon.NickAddon;
@@ -264,9 +267,16 @@ public class GameHandler {
             return getDefaultGroup();
         }
         for (TabListGroup tabListGroup : BedWars.getInstance().getTabListGroups()) {
+            if (BedWars.getInstance().getBedWarsConfig().getBoolean("module.cloudNet.v3.enable")) {
+                if(CloudNetDriver.getInstance().getPermissionManagement().getUser(player.getUniqueId()).inGroup(tabListGroup.getName())) {
+                    return tabListGroup;
+                }
+            }
+            else {
                 if (player.hasPermission(tabListGroup.getPermission())) {
                     return tabListGroup;
                 }
+            }
         }
         return getDefaultGroup();
     }

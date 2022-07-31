@@ -27,4 +27,11 @@ public class TabListGroup {
         this.tagId = tagId;
         this.permission = permission;
     }
+    public TabListGroup(String name, String prefix, String suffix, String display, int tagId) {
+        this.name = name;
+        this.suffix = suffix;
+        this.display = display;
+        this.prefix = prefix;
+        this.tagId = tagId;
+    }
 }
