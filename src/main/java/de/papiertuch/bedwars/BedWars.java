@@ -5,7 +5,6 @@ import de.dytanic.cloudnet.driver.permission.IPermissionGroup;
 import de.dytanic.cloudnet.ext.bridge.BridgeHelper;
 import de.dytanic.cloudnet.ext.bridge.bukkit.BukkitCloudNetHelper;
 import de.papiertuch.bedwars.api.events.GameStateChangeEvent;
-import de.papiertuch.bedwars.cloudnet.CloudNetPermissionsListener;
 import de.papiertuch.bedwars.commands.ForceMap;
 import de.papiertuch.bedwars.commands.Setup;
 import de.papiertuch.bedwars.commands.Start;
@@ -143,10 +142,6 @@ public class BedWars extends JavaPlugin {
         map = "Unknown";
 
         bedWarsConfig.loadConfig();
-
-        if(getBedWarsConfig().getBoolean("module.cloudNet.v3.enable")) {
-            CloudNetDriver.getInstance().getEventManager().registerListener(new CloudNetPermissionsListener());
-        }
 
         File file = new File("plugins/BedWars/mapBackup");
         int amount = 0;
