@@ -1,10 +1,7 @@
 package de.papiertuch.bedwars.stats;
 
 import de.papiertuch.bedwars.BedWars;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.SkullType;
+import org.bukkit.*;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
 import org.bukkit.block.Skull;
@@ -241,14 +238,14 @@ public class StatsAPI {
                 if (loc.getBlock().getState() instanceof Sign) {
                     BlockState blockState = loc.getBlock().getState();
                     Sign sign = (Sign) blockState;
-                    sign.setLine(0, "§b#" + id);
-                    sign.setLine(1, "§7" + name);
+                    sign.setLine(0, ChatColor.AQUA + "#" + id);
+                    sign.setLine(1, ChatColor.DARK_GRAY + name);
                     if (ranking.size() >= (id)) {
-                        sign.setLine(2, "§l" + getInt(name, "POINTS") + " §rPoints");
-                        sign.setLine(3, "§l" + getInt(name, "WINS") + " §rWins");
+                        sign.setLine(2, ChatColor.WHITE + String.valueOf(getInt(name, "POINTS")) + ChatColor.RED + " Points");
+                        sign.setLine(3, ChatColor.WHITE + String.valueOf(getInt(name, "WINS")) + ChatColor.RED + " Wins");
                     } else {
-                        sign.setLine(2, "0 §rPoints");
-                        sign.setLine(3, "0 §rWins");
+                        sign.setLine(2, ChatColor.WHITE + "0" + ChatColor.RED + " Points");
+                        sign.setLine(3, ChatColor.WHITE + "0" + ChatColor.RED + " Wins");
                     }
                     sign.update();
                 }
