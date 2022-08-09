@@ -20,7 +20,7 @@ public class ShopClickListener implements Listener {
     public void onShopClick(InventoryClickEvent event) {
         try {
             Player player = (Player) event.getWhoClicked();
-            if (event.getClickedInventory().getName().contains(" §8┃ §aMenü")) {
+            if (event.getClickedInventory().getName().contains(" §8┃ §aMenu")) {
                 String name = event.getCurrentItem().getItemMeta().getDisplayName();
                 event.setCancelled(true);
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.name"))) {
@@ -74,7 +74,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.bricks.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.bricks.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.endStone.name"))) {
@@ -83,7 +83,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.endStone.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.endStone.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.ironBlock.name"))) {
@@ -92,7 +92,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.ironBlock.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.ironBlock.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.glass.name"))) {
@@ -101,7 +101,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.glass.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.glass.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.glowStone.name"))) {
@@ -110,7 +110,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.glowStone.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.glowStone.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBricksInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.woodPickAxe.name"))) {
@@ -119,7 +119,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.woodPickAxe.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.woodPickAxe.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getToolsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getToolsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.stonePickAxe.name"))) {
@@ -128,7 +128,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.stonePickAxe.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.stonePickAxe.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getToolsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getToolsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.ironPickAxe.name"))) {
@@ -137,7 +137,7 @@ public class ShopClickListener implements Listener {
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.ironPickAxe.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.ironPickAxe.price.price"));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
-                    player.openInventory(BedWars.getInstance().getShopHandler().getToolsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getToolsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     return;
                 }
                 if (name.equalsIgnoreCase(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.stick.name"))) {
@@ -145,7 +145,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.stick.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.stick.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -154,7 +154,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.sword1.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.sword1.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -163,7 +163,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.sword2.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.sword2.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -172,7 +172,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.sword3.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.sword3.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -181,7 +181,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.sword4.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.sword4.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getWeaponsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -190,7 +190,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.bow1.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.bow1.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -199,7 +199,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.bow2.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.bow2.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -208,7 +208,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.bow3.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.bow3.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -217,7 +217,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.arrow.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.arrow.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getBowInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -226,7 +226,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.endChest.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.endChest.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getChestInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getChestInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -235,7 +235,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.chest.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.chest.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getChestInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getChestInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -244,7 +244,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.healing1.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.healing1.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -253,7 +253,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.healing2.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.healing2.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -262,7 +262,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.strength.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.strength.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -271,7 +271,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.regeneration.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.regeneration.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -280,7 +280,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.speed.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.speed.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getPotionsInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -289,7 +289,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.apple.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.apple.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -298,7 +298,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.beef.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.beef.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -307,7 +307,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.cake.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.cake.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -316,7 +316,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.goldenApple.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.goldenApple.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getFoodInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -325,7 +325,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.ladder.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.ladder.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -334,7 +334,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.web.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.web.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -343,7 +343,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.warp.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.warp.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -352,7 +352,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.shop.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.shop.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -361,7 +361,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.tnt.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.tnt.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -370,7 +370,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.egg.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.egg.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -379,7 +379,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.rescue.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.rescue.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -388,7 +388,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.pearl.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.pearl.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getSpecialInventory(event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -397,7 +397,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.helmet.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.helmet.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -406,7 +406,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.leggings.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.leggings.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -415,7 +415,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.boots.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.boots.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -424,7 +424,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.chestPlate1.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.chestPlate1.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -433,7 +433,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.chestPlate2.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.chestPlate2.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -442,7 +442,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.chestPlate3.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.chestPlate3.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }
@@ -451,7 +451,7 @@ public class ShopClickListener implements Listener {
                             player, new ItemBuilder(event.getCurrentItem()).removeLore().build(),
                             Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.chestPlate4.price.material")),
                             BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.chestPlate4.price.price"));
-                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenü", "")));
+                    player.openInventory(BedWars.getInstance().getShopHandler().getArmorInventory(player, event.getClickedInventory().getName().replace(" §8┃ §aMenu", "")));
                     player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.click")), 1, 1);
                     return;
                 }

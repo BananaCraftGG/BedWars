@@ -59,7 +59,7 @@ public class ShopHandler {
     }
 
     public Inventory getMainInventory(Player player) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.title") + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.title") + " §8┃ §aMenu");
         Material material = Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.item"));
         inventory.setItem(9, new ItemBuilder(Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.item")), 1)
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.name"))
@@ -94,7 +94,7 @@ public class ShopHandler {
     }
 
     public Inventory getSpecialInventory(String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(18, new ItemBuilder(Material.LADDER, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.ladder.amount"))
                 .setName(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.item.ladder.name"))
@@ -135,7 +135,7 @@ public class ShopHandler {
     }
 
     public Inventory getPotionsInventory(String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(18, new ItemBuilder(Material.POTION, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.healing1.amount"))
                 .setData(8261)
@@ -168,7 +168,7 @@ public class ShopHandler {
     }
 
     public Inventory getChestInventory(String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(21, new ItemBuilder(Material.CHEST, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.chest.amount"))
                 .setLore("§8» " + getPrice("chest"))
@@ -184,7 +184,7 @@ public class ShopHandler {
     }
 
     public Inventory getFoodInventory(String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(20, new ItemBuilder(Material.APPLE, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.apple.amount"))
                 .setLore("§8» " + getPrice("apple"))
@@ -209,7 +209,7 @@ public class ShopHandler {
     }
 
     public Inventory getBowInventory(String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(20, new ItemBuilder(Material.BOW, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.bow1.amount"))
                 .setLore("§8» " + getPrice("bow1"))
@@ -242,7 +242,7 @@ public class ShopHandler {
     }
 
     public Inventory getWeaponsInventory(String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(20, new ItemBuilder(Material.STICK, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.stick.amount"))
                 .setLore("§8» " + getPrice("stick"))
@@ -275,7 +275,7 @@ public class ShopHandler {
     }
 
     public Inventory getToolsInventory(String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(21, new ItemBuilder(Material.WOOD_PICKAXE, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.woodPickAxe.amount"))
                 .setLore("§8» " + getPrice("woodPickAxe"))
@@ -298,7 +298,7 @@ public class ShopHandler {
     }
 
     public Inventory getArmorInventory(Player player, String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         inventory.setItem(19, new ItemBuilder(Material.LEATHER_HELMET, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.helmet.amount"))
                 .setLeatherColor(BedWars.getInstance().getGameHandler().getTeam(player).getColor())
@@ -344,7 +344,7 @@ public class ShopHandler {
     }
 
     public Inventory getBricksInventory(Player player, String title) {
-        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenü");
+        Inventory inventory = Bukkit.createInventory(null, 3 * 9, title + " §8┃ §aMenu");
         setMainItems(inventory);
         Material material = Material.valueOf(BedWars.getInstance().getBedWarsConfig().getString("inventory.shop.bricks.item"));
         inventory.setItem(20, new ItemBuilder(material, BedWars.getInstance().getBedWarsConfig().getInt("inventory.shop.item.bricks.amount"))
