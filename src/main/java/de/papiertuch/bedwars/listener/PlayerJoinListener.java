@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -26,7 +27,7 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onJoinEvent(PlayerJoinEvent event) {
-        BedWars.getInstance().getStatsAPI().setStatsWall();
+        BedWars.getInstance().getStatsAPI().loadStatsWall();
         event.setJoinMessage(null);
         Player player = event.getPlayer();
         if (BedWars.getInstance().getGameState() == GameState.LOBBY) {

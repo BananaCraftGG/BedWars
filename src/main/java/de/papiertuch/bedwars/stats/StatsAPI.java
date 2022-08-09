@@ -9,6 +9,7 @@ import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
 import org.bukkit.block.Skull;
 import org.bukkit.entity.Player;
+import org.bukkit.material.Bed;
 import xyz.haoshoku.nick.api.NickAPI;
 
 import java.sql.PreparedStatement;
@@ -255,5 +256,14 @@ public class StatsAPI {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+    public void loadStatsWall() {
+        BedWars.getInstance().getStatsWall().clear();
+        if ( BedWars.getInstance().getStatsWall().isEmpty()) {
+            for (int i = 1; i <BedWars.getInstance().getLocationAPI(BedWars.getInstance().getMap()).getCfg().getInt("statsWall") + 1; i++) {
+                BedWars.getInstance().getStatsWall().add(BedWars.getInstance().getLocationAPI(BedWars.getInstance().getMap()).getLocation("statsSkull." + i));
+            }
+        }
+       setStatsWall();
     }
 }
