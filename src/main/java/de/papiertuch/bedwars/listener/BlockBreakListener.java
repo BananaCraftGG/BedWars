@@ -218,7 +218,7 @@ public class BlockBreakListener implements Listener {
     }
     @EventHandler
     public void onEnteringBed(PlayerInteractEvent event) {
-        if(event.getClickedBlock().getType().equals(Material.BED_BLOCK) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+        if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getClickedBlock().getType().equals(Material.BED_BLOCK)) {
             event.setCancelled(true);
         }
     }
