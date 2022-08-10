@@ -12,3 +12,4 @@ commands:
   setup:
   stats:
   forcemap:
+  forcestart:

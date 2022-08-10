@@ -5,10 +5,7 @@ import de.dytanic.cloudnet.driver.permission.IPermissionGroup;
 import de.dytanic.cloudnet.ext.bridge.BridgeHelper;
 import de.dytanic.cloudnet.ext.bridge.bukkit.BukkitCloudNetHelper;
 import de.papiertuch.bedwars.api.events.GameStateChangeEvent;
-import de.papiertuch.bedwars.commands.ForceMap;
-import de.papiertuch.bedwars.commands.Setup;
-import de.papiertuch.bedwars.commands.Start;
-import de.papiertuch.bedwars.commands.Stats;
+import de.papiertuch.bedwars.commands.*;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.bedwars.game.Scheduler;
 import de.papiertuch.bedwars.listener.*;
@@ -376,6 +373,7 @@ public class BedWars extends JavaPlugin {
         getCommand("setup").setExecutor(new Setup());
         getCommand("stats").setExecutor(new Stats());
         getCommand("forcemap").setExecutor(new ForceMap());
+        getCommand("forcestart").setExecutor(new ForceStart());
     }
 
     public void setGameState(GameState gameState) {

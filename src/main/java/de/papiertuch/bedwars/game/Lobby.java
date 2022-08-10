@@ -158,7 +158,7 @@ public class Lobby {
         }, 0, 20);
     }
 
-    private void playSound() {
+    public void playSound() {
         for (Player a : Bukkit.getOnlinePlayers()) {
             a.playSound(a.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.countdown")), 10F, 10F);
         }
