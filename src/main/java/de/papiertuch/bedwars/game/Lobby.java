@@ -171,7 +171,7 @@ public class Lobby {
         waitingID = Bukkit.getScheduler().scheduleSyncRepeatingTask(BedWars.getInstance(), () -> {
             int missing = (BedWars.getInstance().getBedWarsConfig().getInt("settings.minPlayers") - BedWars.getInstance().getPlayers().size());
             for (Player a : Bukkit.getOnlinePlayers()) {
-                if (BedWars.getInstance().getPlayers().size() == 1) {
+                if (missing - BedWars.getInstance().getPlayers().size() == 1) {
                     BedWars.getInstance().getGameHandler().sendActionBar(a, BedWars.getInstance().getBedWarsConfig().getString("message.actionBar.lobbyWaitingOnes"));
                 } else {
                     BedWars.getInstance().getGameHandler().sendActionBar(a, BedWars.getInstance().getBedWarsConfig().getString("message.actionBar.lobbyWaiting")
