@@ -12,7 +12,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.List;
 import java.util.UUID;
@@ -214,11 +216,11 @@ public class BlockBreakListener implements Listener {
             }
         }
     }
-
-  /*
     @EventHandler
-    public void onBlockCanBuild(BlockCanBuildEvent event) {
-        event.setBuildable(true);
+    public void onEnteringBed(PlayerInteractEvent event) {
+        if(event.getClickedBlock().getType().equals(Material.BED_BLOCK) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+            event.setCancelled(true);
+        }
     }
-   */
+
 }
