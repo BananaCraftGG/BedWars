@@ -6,6 +6,8 @@ import de.papiertuch.bedwars.api.events.PlayerCoinsUpdateEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 /**
  * Created by Leon on 16.06.2019.
  * development with love.
@@ -78,6 +80,15 @@ public class StatsHandler {
                     .replace("%player%", player.getName())
                     .replace("%value%", String.valueOf(BedWars.getInstance().getBedWarsConfig().getInt("settings.coinCommand.winValue"))));
         }
+    }
+
+    public void addLoss(UUID uuid) {
+        if (!BedWars.getInstance().getBedWarsConfig().getBoolean("settings.enableStats")) {
+            return;
+        }
+        Bukkit.getScheduler().runTaskAsynchronously(BedWars.getInstance(), () -> {
+            new StatsAPI(uuid).addInt("LOSSES", 1);
+        });
     }
 
     public void addDestroyBed(Player player) {

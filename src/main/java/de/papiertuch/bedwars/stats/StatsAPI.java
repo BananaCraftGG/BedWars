@@ -39,6 +39,10 @@ public class StatsAPI {
         this.name = player.getName();
     }
 
+    public StatsAPI(UUID uuid) {
+        this.uuid = uuid;
+    }
+
     public StatsAPI() {
 
     }
