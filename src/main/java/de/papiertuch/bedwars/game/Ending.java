@@ -74,12 +74,6 @@ public class Ending {
             }
             switch (seconds) {
                 case 15:
-                    BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.serverStopIn")
-                            .replace("%seconds%", String.valueOf(seconds)));
-                    for (Player a : Bukkit.getOnlinePlayers()) {
-                        a.playSound(a.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.endingCountdown")), 1, 1);
-                    }
-                    break;
                 case 10:
                 case 5:
                 case 4:
