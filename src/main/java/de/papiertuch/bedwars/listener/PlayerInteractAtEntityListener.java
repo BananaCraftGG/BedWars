@@ -28,7 +28,7 @@ public class PlayerInteractAtEntityListener implements Listener {
             event.setCancelled(true);
             return;
         }
-        if (EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) != EntityType.VILLAGER) {
+        if (EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) != EntityType.VILLAGER && EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) != EntityType.PLAYER) {
             if (event.getRightClicked().getType() == EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) && BedWars.getInstance().getPlayers().contains(player.getUniqueId())) {
                 event.setCancelled(true);
                 player.openInventory(BedWars.getInstance().getShopHandler().getMainInventory(player));
@@ -48,7 +48,7 @@ public class PlayerInteractAtEntityListener implements Listener {
             event.setCancelled(true);
             return;
         }
-        if (event.getRightClicked().getType() == EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) && BedWars.getInstance().getPlayers().contains(player.getUniqueId())) {
+        if (event.getRightClicked().getType() == EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) && BedWars.getInstance().getPlayers().contains(player.getUniqueId()) && EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) != EntityType.PLAYER) {
             event.setCancelled(true);
             player.openInventory(BedWars.getInstance().getShopHandler().getMainInventory(player));
             player.playSound(player.getLocation(), BedWars.getInstance().getGameHandler().getSound(BedWars.getInstance().getBedWarsConfig().getString("sound.interact")), 1, 1);
