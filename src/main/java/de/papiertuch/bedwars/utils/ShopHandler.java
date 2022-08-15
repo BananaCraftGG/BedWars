@@ -51,7 +51,7 @@ public class ShopHandler {
     private void fillInventory(Inventory inventory) {
         for (int i = 0; i < inventory.getSize(); i++) {
             if (inventory.getItem(i) == null) {
-                inventory.setItem(i, new ItemBuilder(Material.STAINED_GLASS_PANE, 1)
+                inventory.setItem(i, new ItemBuilder(Material.STAINED_GLASS_PANE, 1, 15)
                         .setName("§7")
                         .build());
             }
