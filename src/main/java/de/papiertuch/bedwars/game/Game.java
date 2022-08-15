@@ -11,6 +11,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 /**
@@ -73,7 +74,9 @@ public class Game {
     }
 
     private void setGameStuff() {
-        BedWars.getInstance().getShopNPC().spawnNPCs();
+        if (EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) == EntityType.PLAYER) {
+            BedWars.getInstance().getShopNPC().spawnNPCs();
+        }
         BedWars.getInstance().getScheduler().getLobby().stopWaiting();
         BedWars.getInstance().getScheduler().getLobby().stopCountdown();
         BedWars.getInstance().getGameHandler().sendBroadCast(BedWars.getInstance().getBedWarsConfig().getString("message.roundStarting"));
