@@ -96,6 +96,7 @@ public class Game {
             a.sendTitle("§a", "§7");
             BedWars.getInstance().getLastHit().clear();
             BedWars.getInstance().getStatsHandler().addPlayedGame(a);
+            BedWars.getInstance().getStatsHandler().addLoss(a.getUniqueId());
         }
     }
 

@@ -333,16 +333,10 @@ public class GameHandler {
         BedWarsTeam winner = null;
         if (BedWars.getInstance().getAliveTeams().size() == 1) {
             winner = BedWars.getInstance().getAliveTeams().get(0);
-            UUID winnerUUID = null;
             for (UUID uuid : winner.getPlayers()) {
-                winnerUUID = uuid;
                 Player a = Bukkit.getPlayer(uuid);
+                BedWars.getInstance().getStatsHandler().removeLoss(a.getUniqueId());
                 BedWars.getInstance().getStatsHandler().addWin(a);
-            }
-            for(UUID uuid : BedWars.getInstance().getPlayers()) {
-                if(uuid != winnerUUID) {
-                    BedWars.getInstance().getStatsHandler().addLoss(uuid);
-                }
             }
             BedWars.getInstance().getScheduler().getEnding().startCountdown();
             for (Player a : Bukkit.getOnlinePlayers()) {

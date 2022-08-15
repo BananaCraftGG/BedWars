@@ -91,6 +91,15 @@ public class StatsHandler {
         });
     }
 
+    public void removeLoss(UUID uuid) {
+        if (!BedWars.getInstance().getBedWarsConfig().getBoolean("settings.enableStats")) {
+            return;
+        }
+        Bukkit.getScheduler().runTaskAsynchronously(BedWars.getInstance(), () -> {
+            new StatsAPI(uuid).removeInt("LOSSES", 1);
+        });
+    }
+
     public void addDestroyBed(Player player) {
         if (!BedWars.getInstance().getBedWarsConfig().getBoolean("settings.enableStats")) {
             return;
