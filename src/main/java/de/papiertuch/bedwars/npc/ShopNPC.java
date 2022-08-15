@@ -74,7 +74,6 @@ public class ShopNPC implements Listener {
         ShopNPC shopNPC = BedWars.getInstance().getShopNPC();
         shopLocations.forEach(location -> {
             if(location.getWorld().getName().equals(BedWars.getInstance().getMap())) {
-                Bukkit.broadcastMessage("create " + location.getWorld().getName());
                 shopNPC.createNPC(location);
             }
         });
