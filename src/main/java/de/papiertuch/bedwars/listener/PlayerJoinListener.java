@@ -31,6 +31,9 @@ public class PlayerJoinListener implements Listener {
         event.setJoinMessage(null);
         Player player = event.getPlayer();
         if (BedWars.getInstance().getGameState() == GameState.LOBBY) {
+            if (Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
+                BedWars.getInstance().getStatsHologram().load(player);
+            }
             BedWars.getInstance().getStatsHandler().createPlayer(player);
             BedWars.getInstance().getGameHandler().setPlayer(player);
             BedWars.getInstance().getBoard().addPlayerToBoard(player);

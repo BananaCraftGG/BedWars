@@ -24,6 +24,9 @@ public class PlayerQuitListener implements Listener {
         event.setQuitMessage(null);
         Player player = event.getPlayer();
         if (BedWars.getInstance().getGameState() == GameState.LOBBY || BedWars.getInstance().getGameState() == GameState.ENDING) {
+            if (Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
+                BedWars.getInstance().getStatsHologram().delete(player);
+            }
             if (BedWars.getInstance().getGameHandler().getSetup().containsKey(player.getUniqueId())) {
                 BedWars.getInstance().getGameHandler().getSetupTeam().remove(player.getUniqueId());
                 BedWars.getInstance().getGameHandler().getSetup().remove(player.getUniqueId());

@@ -33,6 +33,7 @@ public class Setup implements CommandExecutor {
                sendSyntax(player);
             }
             if (args.length == 1) {
+                LocationAPI locationAPI;
                 switch (args[0].toLowerCase()) {
                     case "listmaps":
                         player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " §7Maps");
@@ -55,7 +56,7 @@ public class Setup implements CommandExecutor {
                         }
                         break;
                     case "addshop":
-                        LocationAPI locationAPI = new LocationAPI("shops");
+                       locationAPI = new LocationAPI("shops");
                         int count;
                         try {
                             count = locationAPI.getCfg().getInt("shops");
@@ -69,6 +70,21 @@ public class Setup implements CommandExecutor {
                         locationAPI.save();
                         locationAPI.setLocation("shop." + newCount, player.getLocation());
                         player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " Set shop " + newCount);
+                        break;
+                    case "addholo":
+                        locationAPI = new LocationAPI("holograms");
+                        try {
+                            count = locationAPI.getCfg().getInt("holograms");
+                        } catch (Exception e) {
+                            locationAPI.getCfg().addDefault("holograms", 0);
+                            count = 0;
+                            locationAPI.save();
+                        }
+                        newCount = count + 1;
+                        locationAPI.getCfg().set("holograms", newCount);
+                        locationAPI.save();
+                        locationAPI.setLocation("statsHologram." + newCount, player.getLocation());
+                        player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " Set hologram " + newCount);
                         break;
                     default:
                         sendSyntax(player);

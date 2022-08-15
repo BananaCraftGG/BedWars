@@ -9,6 +9,7 @@ import de.papiertuch.bedwars.api.events.GameStateChangeEvent;
 import de.papiertuch.bedwars.commands.*;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.bedwars.game.Scheduler;
+import de.papiertuch.bedwars.hologram.StatsHologram;
 import de.papiertuch.bedwars.listener.*;
 import de.papiertuch.bedwars.npc.ShopNPC;
 import de.papiertuch.bedwars.stats.MySQL;
@@ -29,6 +30,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.*;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -83,6 +85,8 @@ public class BedWars extends JavaPlugin {
     private NPCPool npcPool;
 
     private ShopNPC shopNPC;
+
+    private StatsHologram statsHologram;
 
     private String map;
 
@@ -149,6 +153,15 @@ public class BedWars extends JavaPlugin {
         if (EntityType.valueOf(bedWarsConfig.getString("settings.shopType")) == EntityType.PLAYER) {
             shopNPC = new ShopNPC(this);
             shopNPC.loadNPCLocations();
+        }
+
+        if (Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
+            try {
+                statsHologram = new StatsHologram();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            statsHologram.loadHologramLocations();
         }
 
         File file = new File("plugins/BedWars/mapBackup");
