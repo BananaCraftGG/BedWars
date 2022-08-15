@@ -29,11 +29,11 @@ public class MySQL {
         } catch (Exception e) {
             Bukkit.getServer().getConsoleSender().sendMessage("§8[§e§lBedWars§8] §cDie Verbindung zum MySQL-Server ist fehlgeschlagen");
         }
-        Bukkit.getScheduler().scheduleAsyncRepeatingTask(BedWars.getInstance(), () -> update("CREATE TABLE IF NOT EXISTS bedwars (UUID VARCHAR(100), NAME VARCHAR(100), KILLS INT, DEATHS INT, WINS INT, LOSSES INT, PLAYED INT, BED INT, POINTS INT)"), 0, 216000);
+        Bukkit.getScheduler().scheduleAsyncRepeatingTask(BedWars.getInstance(), () -> update("CREATE TABLE IF NOT EXISTS bedwars (UUID VARCHAR(100) primary key, NAME VARCHAR(100), KILLS INT, DEATHS INT, WINS INT, LOSSES INT, PLAYED INT, BED INT, POINTS INT)"), 0, 216000);
     }
 
     public void createTable() {
-        update("CREATE TABLE IF NOT EXISTS bedwars (UUID VARCHAR(100), NAME VARCHAR(100), KILLS INT, DEATHS INT, WINS INT, LOSSES INT, PLAYED INT, BED INT, POINTS INT)");
+        update("CREATE TABLE IF NOT EXISTS bedwars (UUID VARCHAR(100) primary key, NAME VARCHAR(100), KILLS INT, DEATHS INT, WINS INT, LOSSES INT, PLAYED INT, BED INT, POINTS INT)");
     }
 
 
