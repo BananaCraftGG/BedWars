@@ -2,6 +2,7 @@ package de.papiertuch.bedwars.commands;
 
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.utils.BedWarsTeam;
+import de.papiertuch.bedwars.utils.LocationAPI;
 import de.papiertuch.bedwars.utils.TabListGroup;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -52,6 +53,22 @@ public class Setup implements CommandExecutor {
                             player.sendMessage("§8» §f§lTagId §8» §e" + tabListGroup.getTagId());
                             player.sendMessage("§8» §f§lPermission §8» §e" + tabListGroup.getPermission());
                         }
+                        break;
+                    case "addshop":
+                        LocationAPI locationAPI = new LocationAPI("shops");
+                        int count;
+                        try {
+                            count = locationAPI.getCfg().getInt("shops");
+                        } catch (Exception e) {
+                            locationAPI.getCfg().addDefault("shops", 0);
+                            count = 0;
+                            locationAPI.save();
+                        }
+                        int newCount = count + 1;
+                        locationAPI.getCfg().set("shops", newCount);
+                        locationAPI.save();
+                        locationAPI.setLocation("shop." + newCount, player.getLocation());
+                        player.sendMessage(BedWars.getInstance().getBedWarsConfig().getString("message.prefix") + " Set shop " + newCount);
                         break;
                     default:
                         sendSyntax(player);

@@ -1,5 +1,6 @@
 package de.papiertuch.bedwars;
 
+import com.github.juliarn.npc.NPCPool;
 import de.dytanic.cloudnet.driver.CloudNetDriver;
 import de.dytanic.cloudnet.driver.permission.IPermissionGroup;
 import de.dytanic.cloudnet.ext.bridge.BridgeHelper;
@@ -9,6 +10,7 @@ import de.papiertuch.bedwars.commands.*;
 import de.papiertuch.bedwars.enums.GameState;
 import de.papiertuch.bedwars.game.Scheduler;
 import de.papiertuch.bedwars.listener.*;
+import de.papiertuch.bedwars.npc.ShopNPC;
 import de.papiertuch.bedwars.stats.MySQL;
 import de.papiertuch.bedwars.stats.StatsAPI;
 import de.papiertuch.bedwars.stats.StatsHandler;
@@ -17,6 +19,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -76,6 +79,10 @@ public class BedWars extends JavaPlugin {
     private HashMap<String, List<Location>> blocks;
 
     private boolean boarder, gold, nickEnable, forceMap, itemDrop;
+
+    private NPCPool npcPool;
+
+    private ShopNPC shopNPC;
 
     private String map;
 
@@ -139,6 +146,10 @@ public class BedWars extends JavaPlugin {
         map = "Unknown";
 
         bedWarsConfig.loadConfig();
+        if (EntityType.valueOf(bedWarsConfig.getString("settings.shopType")) == EntityType.PLAYER) {
+            shopNPC = new ShopNPC(this);
+            shopNPC.loadNPCLocations();
+        }
 
         File file = new File("plugins/BedWars/mapBackup");
         int amount = 0;
