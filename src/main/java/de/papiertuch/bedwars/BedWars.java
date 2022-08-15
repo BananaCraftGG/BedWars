@@ -205,6 +205,7 @@ public class BedWars extends JavaPlugin {
         colors.put("OLIVE", Color.OLIVE);
         colors.put("ORANGE", Color.ORANGE);
         colors.put("PURPLE", Color.PURPLE);
+        colors.put("PINK", Color.fromRGB(236, 13, 252));
         colors.put("RED", Color.RED);
         colors.put("SILVER", Color.SILVER);
         colors.put("TEAL", Color.TEAL);
@@ -224,6 +225,7 @@ public class BedWars extends JavaPlugin {
         colorIds.put(Color.SILVER, 8);
         colorIds.put(Color.WHITE, 0);
         colorIds.put(Color.YELLOW, 4);
+        colorIds.put(Color.fromRGB(236, 13, 252), 16);
 
         if (getBedWarsConfig().getBoolean("module.cloudNet.v3.enable")) {
             for(IPermissionGroup iPermissionGroup : CloudNetDriver.getInstance().getPermissionManagement().getGroups()) {
