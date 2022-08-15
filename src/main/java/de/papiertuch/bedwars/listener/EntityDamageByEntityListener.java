@@ -23,7 +23,7 @@ public class EntityDamageByEntityListener implements Listener {
     @EventHandler
     public void onEntity(EntityDamageByEntityEvent event) {
         try {
-            if (event.getEntity().getType() == EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType"))) {
+            if (event.getEntity().getType() == EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) && EntityType.valueOf(BedWars.getInstance().getBedWarsConfig().getString("settings.shopType")) != EntityType.PLAYER) {
                 event.setCancelled(true);
             }
             Player damager = (Player) event.getDamager();
