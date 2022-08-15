@@ -11,6 +11,7 @@ import com.github.juliarn.npc.profile.Profile;
 import de.papiertuch.bedwars.BedWars;
 import de.papiertuch.bedwars.utils.LocationAPI;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -24,10 +25,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 @Getter
+@Setter
 public class ShopNPC implements Listener {
     private final Random random;
 
     private ArrayList<Location> shopLocations = new ArrayList<>();
+
+    private Profile playerProfile;
 
     public ShopNPC(Plugin plugin) {
         BedWars.getInstance().setNpcPool(NPCPool.builder(plugin)
@@ -41,7 +45,7 @@ public class ShopNPC implements Listener {
 
     public void createNPC(Location location) {
         NPC npc = NPC.builder()
-                .profile(this.createProfile())
+                .profile(playerProfile)
                 .location(location)
                 .imitatePlayer(false)
                 .lookAtPlayer(true)

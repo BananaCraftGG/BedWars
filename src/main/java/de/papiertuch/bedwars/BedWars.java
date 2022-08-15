@@ -152,6 +152,7 @@ public class BedWars extends JavaPlugin {
         bedWarsConfig.loadConfig();
         if (EntityType.valueOf(bedWarsConfig.getString("settings.shopType")) == EntityType.PLAYER) {
             shopNPC = new ShopNPC(this);
+            shopNPC.setPlayerProfile(shopNPC.createProfile());
             shopNPC.loadNPCLocations();
         }
 
