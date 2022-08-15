@@ -4,6 +4,7 @@ import com.gmail.filoghost.holographicdisplays.api.Hologram;
 import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
 import com.gmail.filoghost.holographicdisplays.api.VisibilityManager;
 import de.papiertuch.bedwars.BedWars;
+import de.papiertuch.bedwars.stats.StatsAPI;
 import de.papiertuch.bedwars.utils.LocationAPI;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,6 +35,8 @@ public class StatsHologram {
                 hologram.appendTextLine(ChatColor.DARK_GRAY + "===" + ChatColor.RED + " BedWars" + ChatColor.WHITE + " Stats " + ChatColor.DARK_GRAY + "===");
                 hologram.appendTextLine("");
                 hologram.appendTextLine(ChatColor.GRAY + "Name: " + ChatColor.AQUA + p.getName());
+                hologram.appendTextLine("");
+                hologram.appendTextLine(ChatColor.GRAY + "Rank: #" + ChatColor.GREEN +  new StatsAPI(p).getRankingFromUUID());
                 hologram.appendTextLine("");
                 hologram.appendTextLine(ChatColor.GRAY + "Points: " + ChatColor.GREEN + BedWars.getInstance().getStatsAPI().getInt(p.getName(), "POINTS"));
                 hologram.appendTextLine("");
